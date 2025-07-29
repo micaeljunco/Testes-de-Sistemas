@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Usuário:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Senha:</label>
+            <input type="password" name="password" id="password" required>
+            
+            <p style="color: red; display: none;">Usuário ou senha incorretos.</p>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simulação de verificação de usuário e senha
+            if (username === 'admin' && password === '1234') {
+                window.location.href = 'index.html'; // Redireciona para a página de dashboard
+            } else {
+                document.querySelector('p').style.display = 'block'; // Exibe mensagem de erro
+            }
+        });
+    </script>
+</body>
+</html>
